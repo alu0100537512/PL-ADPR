@@ -1,0 +1,50 @@
+p This website contains a simple example of a predictive parser
+#header.header
+  p
+    | 
+  div
+    .loadfile
+      pre
+        | Ejemplos
+      button#example1[type="button" onclick="dump('/examples/example1.txt');"]
+        | Ejemplo 1
+      button#example4[type="button" onclick="dump('/examples/example4.txt');"]
+        | Ejemplo 2
+      button#exampleerr[type="button" onclick="dump('/examples/example_err.txt');"]
+        | Ejemplo con fallo
+      input#files type="file"
+  div
+    .textarea_panel
+     textarea#original[autofocus cols="80" rows="5" name="Code"]
+
+    javascript:
+        var editor = CodeMirror.fromTextArea(document.getElementById("original"), {
+          lineNumbers: true,
+          viewportMargin: Infinity,
+          mode: "text/x-pascal" // Usamos pascal, que se parece bastante.
+        });
+        
+        // Véase http://stackoverflow.com/questions/8378678/how-can-i-set-the-value-of-a-codemirror-editor-by-javascript
+        function dump(fileName) {
+          $.get(fileName, function (data) {
+            //$("#original").val(data);
+            editor.setValue(data);
+           });
+        };
+
+        document.getElementById('files').addEventListener('change', CopyMe, false);
+
+        function CopyMe(evt) {
+          var file = evt.target.files[0];
+            if (file) {
+              var reader = new FileReader();
+              reader.onload = function(e) { 
+                //original.innerHTML = e.target.result;
+              editor.setValue(e.target.result);
+              }
+              var c = reader.readAsText(file);
+            }
+            else { alert("Failed to load file"); }
+        }
+input#PARSE.mylink[value="Parsear" type="button"]
+pre#OUTPUT &lt;Sin parsear&gt;
