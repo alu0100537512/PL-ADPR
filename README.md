@@ -3,8 +3,8 @@
 ## Enlaces ##
 Se puede acceder a la página web de *Heroku* alojada en el siguiente enlace:
 
-- Heroku: [Aún no disponible](Aún no disponible)
-- Pruebas: [Aún no disponible](Aún no disponible)
+- Heroku: [http://pl-adpr.herokuapp.com/](http://pl-adpr.herokuapp.com/)
+- Pruebas: [http://pl-adpr.herokuapp.com/tests](http://pl-adpr.herokuapp.com/tests)
 
 <!-- Tabla -->
 <table cellspacing="0">
